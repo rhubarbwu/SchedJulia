@@ -1,10 +1,10 @@
-# Schedjulia
+# SchedJulia
 
-Schedjulia is an appointment scheduling script written in Julia.
+SchedJulia is an appointment scheduling script written in Julia.
 
 ## Overview
 
-Schedjulia uses the concept of appointments with required duration and attendees, crossed with the attendees' availabilities to produce a satisfying schedule.
+SchedJulia uses the concept of appointments with required duration and attendees, crossed with the attendees' availabilities to produce a satisfying schedule.
 
 ### Prerequisites
 
@@ -14,7 +14,7 @@ Schedjulia uses the concept of appointments with required duration and attendees
 
 ### Files
 
-- Schedjulia uses integer units to represent time. Of course, these units can be scaled to represent different timeslots of the time period.
+- SchedJulia uses integer units to represent time. Of course, these units can be scaled to represent different timeslots of the time period.
   - For example, the range `[0-23]` can be used to represent the 24 hours in one day.
 - Appointments to be scheduled include their unit duration and attendees, stored in `appointments.txt`.
 

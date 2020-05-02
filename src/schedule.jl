@@ -16,9 +16,9 @@ function construct(appointments, availability)
     commonFreeTimes = reduce(intersect, attendeeFreeTimes)
     for commonFreeTime in commonFreeTimes
         availabilityCopy = copy(availability)
-        for freeTime in availabilityCopy
-            if freeTime in appointment
-                pop!(availabilityCopy[freeTime], freeTime)
+        for attendee in keys(availabilityCopy)
+            if commonFreeTime in availabilityCopy[attendee]
+                pop!(availabilityCopy[attendee], commonFreeTime)
             end
         end
 
