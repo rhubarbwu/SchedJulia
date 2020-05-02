@@ -1,0 +1,13 @@
+Alice|2,7,9
+Brian|1,2,3
+Carla|2,6,7
+Daryl|
+Ester|
+Frank|
+Grant|
+Henry|
+Irene|
+James|
+Klaus|
+Laura|
+Mason|
