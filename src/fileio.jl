@@ -1,6 +1,7 @@
 module FileIO
 
 using DelimitedFiles
+using Printf
 
 function read_appointments()
     appointments = Tuple{Int,Set{String}}[]
@@ -21,12 +22,24 @@ function read_availability()
         if length(times) == 0
             continue
         end
+
         availability[name] = Set(readdlm(IOBuffer(times), ',', Int))
     end
 
     availability
 end
 
-export read_appointments, read_availability
+function write_schedule(schedule)
+    open("schedule.txt", "w") do io
+        appointment_to_str = function (app)
+            @sprintf("%.0f|%s", app[1], join(collect(app[2]), ','))
+        end
+    
+        scheduleLines = map(appointment_to_str, schedule)
+        writedlm(io, scheduleLines)
+    end
+end
+
+export read_appointments, read_availability, write_schedule
 
 end
