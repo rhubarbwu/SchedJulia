@@ -1,2 +1,2 @@
-5|Carla,Alice
+2|Carla,Alice
 1|Alice,Carla,Brian

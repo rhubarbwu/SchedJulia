@@ -16,14 +16,14 @@ SchedJulia uses the concept of appointments with required duration and attendees
 
 - SchedJulia uses integer units to represent time. Of course, these units can be scaled to represent different timeslots of the time period.
   - For example, the range `[0-23]` can be used to represent the 24 hours in one day.
-- Appointments to be scheduled include their unit duration and attendees, stored in `appointments.txt`.
+- Appointments to be scheduled include their unit duration and attendees, stored in `data/appointments.txt`.
 
   ```txt
   <duration>|<attendee>,<attendee>,...
   ...
   ```
 
-- Availabilities of individual attendees are stored in `availability.txt`.
+- Availabilities of individual attendees are stored in `data/availability.txt`.
 
   ```txt
   <attendee>|<timeslot>,<timeslot>,...
@@ -34,7 +34,7 @@ SchedJulia uses the concept of appointments with required duration and attendees
 
 ## Usage
 
-After loading `appointments.txt` and `availability.txt`, run the script.
+After loading `data/appointments.txt` and `data/availability.txt`, run the script.
 
 ```sh
 julia schedjulia.jl
@@ -42,10 +42,10 @@ julia schedjulia.jl
 
 ### Output
 
-If a successful schedule arrangement is found, the output will be in `schedule.txt`, in the following format.
+If a successful schedule arrangement is found, the output will be in `data/schedule.txt`, in the following format.
 
 ```txt
-<start_time>:<end_time>|<attendee>,<attendee>,...
+<start_time>-<end_time>|<attendee>,<attendee>,...
 ...
 ```
 

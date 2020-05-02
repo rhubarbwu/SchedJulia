@@ -3,9 +3,9 @@ module FileIO
 using DelimitedFiles
 using Printf
 
-function read_appointments()
+function read_appointments(path)
     appointments = Tuple{Int,Set{String}}[]
-    for line in readlines("appointments.txt")
+    for line in readlines(path)
         result = split(line, '|')
         duration = parse(Int, result[1])
         names = Set(readdlm(IOBuffer(result[2]), ',', String))
@@ -15,9 +15,9 @@ function read_appointments()
     appointments
 end
 
-function read_availability()
+function read_availability(path)
     availability = Dict{String,Set{Int}}()
-    for line in readlines("availability.txt")
+    for line in readlines(path)
         name, times = split(line, '|')
         if length(times) == 0
             continue
@@ -30,13 +30,14 @@ function read_availability()
 end
 
 function write_schedule(schedule)
-    open("schedule.txt", "w") do io
+    open("data/schedule.txt", "w") do io
         appointment_to_str = function (app)
             @sprintf("%d-%d|%s", app[1], app[2], join(collect(app[3]), ','))
         end
     
         scheduleLines = map(appointment_to_str, schedule)
         writedlm(io, scheduleLines)
+        foreach(obj->println("   ", obj), scheduleLines)
     end
 end
 
