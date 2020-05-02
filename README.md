@@ -15,12 +15,15 @@ Schedjulia uses the concept of appointments with required duration and attendees
 ### Files
 
 - Schedjulia uses integer units to represent time. Of course, these units can be scaled to represent different timeslots of the time period.
+  - For example, the range `[0-23]` can be used to represent the 24 hours in one day.
 - Appointments to be scheduled include their unit duration and attendees, stored in `appointments.txt`.
 
   ```txt
   <duration>|<attendee>,<attendee>,...
   ...
   ```
+
+  **Note**: The duration must be included but is not yet used, and all appointments are single-unit (for now).
 
 - Availabilities of individual attendees are stored in `availability.txt`.
 
@@ -29,7 +32,7 @@ Schedjulia uses the concept of appointments with required duration and attendees
   ...
   ```
 
-- **Note**: Follow the above templates or supplied example files as closely as possible, and do not include newlines at the end of the files.
+- Follow the format of the above templates or example files closely, and do not include newlines at the end of the files.
 
 ## Usage
 
