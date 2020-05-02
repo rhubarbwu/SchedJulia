@@ -32,7 +32,7 @@ end
 function write_schedule(schedule)
     open("schedule.txt", "w") do io
         appointment_to_str = function (app)
-            @sprintf("%.0f|%s", app[1], join(collect(app[2]), ','))
+            @sprintf("%d-%d|%s", app[1], app[2], join(collect(app[3]), ','))
         end
     
         scheduleLines = map(appointment_to_str, schedule)

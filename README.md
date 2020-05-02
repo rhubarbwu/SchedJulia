@@ -23,8 +23,6 @@ SchedJulia uses the concept of appointments with required duration and attendees
   ...
   ```
 
-  **Note**: The duration must be included but is not yet used, and all appointments are single-unit (for now).
-
 - Availabilities of individual attendees are stored in `availability.txt`.
 
   ```txt
@@ -41,6 +39,17 @@ After loading `appointments.txt` and `availability.txt`, run the script.
 ```sh
 julia schedjulia.jl
 ```
+
+### Output
+
+If a successful schedule arrangement is found, the output will be in `schedule.txt`, in the following format.
+
+```txt
+<start_time>:<end_time>|<attendee>,<attendee>,...
+...
+```
+
+If no successful arrangement can be found, SchedJulia will output "`NO SCHEDULE POSSIBLE`".
 
 ## Development/Pages
 
