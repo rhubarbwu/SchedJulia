@@ -9,7 +9,7 @@ function construct(appointments, availability)
 
     # Get the list of attendees' availability, and take its intersection.
     attendeeFreeTimes = []
-    duration, attendees = appointments[1]
+    title, duration, attendees = appointments[1]
     for requirement in attendees
         push!(attendeeFreeTimes, availability[requirement])
     end
@@ -41,14 +41,14 @@ function construct(appointments, availability)
 
         # If this is the last appointment, and it's successful, return it.
         if length(appointments[2:end,1]) == 0 
-            return [(startTime, endTime, attendees)]
+            return [(title, startTime, endTime, attendees)]
         end
 
         # If there is a successful arrangement of later appointments.
         # Return this appointment config with that arrangement.
         result = construct(appointments[2:end,1], availabilityCopy)
         if result != nothing
-            return vcat((startTime, endTime, attendees), result)
+            return vcat((title, startTime, endTime, attendees), result)
         end
 
         # If there is no successful arrangement of later appointments based on

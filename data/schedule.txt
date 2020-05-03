@@ -1,2 +1,2 @@
-9-10|Carla,Alice
-2-2|Carla,Brian,Alice
+meeting|9-10|Carla,Alice
+presentation|2-2|Carla,Brian,Alice
