@@ -9,8 +9,9 @@ SchedJulia uses the concept of appointments with required duration and attendees
 ### Prerequisites
 
 - [Julia](https://julialang.org/)
-- An automated conversion system between your calendar/spreadsheet and the `.txt` files here is recommended.
+- If you're interfacing with a calendar or spreadsheet, it's recommended that you write your own wrapper scripts when interfacing before and after running SchedJulia.
   - This way, the integer units representing time and be converted to real time expressions.
+  - For example, [UTMIST's Scheduler](https://gitlab.com/utmist/utmist-scheduler).
 
 ### Files
 
