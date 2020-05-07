@@ -10,12 +10,20 @@ println("Reading availability from data/availability.txt...")
 availability = FileIO.read_availability("data/availability.txt")
 
 println("Attempting to arrange a schedule...")
-schedule = Schedule.construct(appointments, availability)
 
-if schedule == 0 || schedule == -1
+# Validate if each individual appointment is possible.
+if !Schedule.validate(appointments, availability)
     println("\nNO SCHEDULE POSSIBLE\n")
-else
-    println("Successfully arranged schedule...\n")
-    FileIO.write_schedule(schedule)
-    println("\nWriting to data/schedule.txt...")
+    exit()
 end
+
+# Combine the appointments into a schedule.
+schedule = Schedule.construct(appointments, availability)
+if schedule == 0 || schedule == -1
+    println("\nNO COMBINED SCHEDULE POSSIBLE\n")
+    exit()
+end
+
+println("Successfully arranged schedule...\n")
+FileIO.write_schedule(schedule)
+println("\nWriting to data/schedule.txt...")
