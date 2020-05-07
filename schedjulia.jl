@@ -12,7 +12,7 @@ availability = FileIO.read_availability("data/availability.txt")
 println("Attempting to arrange a schedule...")
 schedule = Schedule.construct(appointments, availability)
 
-if schedule == nothing
+if schedule == 0 || schedule == -1
     println("\nNO SCHEDULE POSSIBLE\n")
 else
     println("Successfully arranged schedule...\n")

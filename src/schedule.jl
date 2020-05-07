@@ -13,7 +13,12 @@ function construct(appointments, availability)
     for requirement in attendees
         push!(attendeeFreeTimes, availability[requirement])
     end
+
+    # If there is no way to arrange this single meeting, return -1 (early).
     commonFreeTimes = reduce(intersect, attendeeFreeTimes)
+    if length(commonFreeTimes) == 0
+        return -1
+    end
 
     for startTime in commonFreeTimes
         
@@ -47,13 +52,17 @@ function construct(appointments, availability)
         # If there is a successful arrangement of later appointments.
         # Return this appointment config with that arrangement.
         result = construct(appointments[2:end,1], availabilityCopy)
-        if result != nothing
+        if result == -1
+            return -1
+        elseif result != 0
             return vcat((title, startTime, endTime, attendees), result)
         end
 
         # If there is no successful arrangement of later appointments based on
         # this appointment config, backtrack and try different configs.
     end
+
+    return 0
 end
 
 end
