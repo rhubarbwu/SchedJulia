@@ -11,7 +11,7 @@ function validate_appointments(appointments, availability)
     appointments_count = length(appointments)
     for i in 0:appointments_count - 1
         ii = appointments_count - i
-        if Construct.construct(appointments[ii:ii], availability, true)
+        if Construct.construct(appointments[ii:ii], availability, true) != nothing
             println("  ", appointments[ii][1], 
             " is satisfiable...")
         else
